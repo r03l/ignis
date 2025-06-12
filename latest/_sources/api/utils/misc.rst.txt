@@ -1,0 +1,6 @@
+Misc
+====
+
+.. autofunction:: ignis.utils.get_current_dir
+
+.. autofunction:: ignis.utils.load_interface_xml
