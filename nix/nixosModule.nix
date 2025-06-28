@@ -58,7 +58,7 @@ in
         "To use the Ignis UPower Service, enable UPower in your Nix configuration by adding 'services.upower.enable = true'."
       ] ++ lib.optionals (cfg.services.network && !config.networking.networkmanager.enable) [
         "To use the Ignis Network Service, enable Network Manager in your Nix configuration by adding 'networking.networkmanager.enable = true'."
-      ] ++ lib.optionals (cfg.services.audio && (!config.services.pipewire.enable || !config.services.pulseaudio.enable)) [
+      ] ++ lib.optionals (cfg.services.audio && !(config.services.pipewire.enable || config.services.pulseaudio.enable)) [
         ''To use the Ignis Audio Service, Pipewire or Pulseaudio should be enabled .
         - Enable Pipewire in your Nix configurationby adding 'services.pipewire.enable = true' and 'services.pipewire.pulse.enable'
         - Enable Pulseaudio in your Nix configuration by adding 'services.pulseaudio.enable = true'.''
