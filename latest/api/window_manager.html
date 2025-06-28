@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Menu Model &#8212; Ignis documentation</title>
+    <title>WindowManager &#8212; Ignis documentation</title>
   
   
   
@@ -47,7 +47,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/menu_model';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/window_manager';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://ignis-sh.github.io/ignis/latest/_static/switcher.json';
@@ -57,8 +57,8 @@
         </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Widgets" href="widgets/index.html" />
-    <link rel="prev" title="Connection Manager" href="connection_manager.html" />
+    <link rel="next" title="Singleton" href="singleton.html" />
+    <link rel="prev" title="Application" href="app.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -369,7 +369,7 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="toplevel.html">Toplevel package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="app.html">Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="window_manager.html">WindowManager</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">WindowManager</a></li>
 <li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gobject.html">GObject</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variable.html">Variable</a></li>
@@ -382,7 +382,7 @@
 <li class="toctree-l1"><a class="reference internal" href="base_widget.html">BaseWidget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="base_service.html">BaseService</a></li>
 <li class="toctree-l1"><a class="reference internal" href="connection_manager.html">Connection Manager</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Menu Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu_model.html">Menu Model</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="widgets/index.html">Widgets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="widgets/Arrow.html">Arrow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widgets/ArrowButton.html">ArrowButton</a></li>
@@ -498,7 +498,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">API reference</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Menu Model</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">WindowManager</span></li>
   </ul>
 </nav>
 </div>
@@ -515,154 +515,159 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="menu-model">
-<h1>Menu Model<a class="headerlink" href="#menu-model" title="Link to this heading">#</a></h1>
+  <section id="windowmanager">
+<h1>WindowManager<a class="headerlink" href="#windowmanager" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.menu_model.</span></span><span class="sig-name descname"><span class="pre">IgnisMenuModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ignis.menu_model.IgnisMenuItem" title="ignis.menu_model.IgnisMenuItem"><span class="pre">IgnisMenuItem</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#ignis.menu_model.IgnisMenuModel" title="ignis.menu_model.IgnisMenuModel"><span class="pre">IgnisMenuModel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#ignis.menu_model.IgnisMenuSeparator" title="ignis.menu_model.IgnisMenuSeparator"><span class="pre">IgnisMenuSeparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.menu_model.IgnisMenuModel" title="Link to this definition">#</a></dt>
-<dd><p>A helper class that provides a convenient way to construct a <a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Menu.html#Gio.Menu" title="(in Gio 2.0 v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gio.Menu</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>*args</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#ignis.menu_model.IgnisMenuItem" title="ignis.menu_model.IgnisMenuItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">IgnisMenuItem</span></code></a> | <a class="reference internal" href="#ignis.menu_model.IgnisMenuModel" title="ignis.menu_model.IgnisMenuModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">IgnisMenuModel</span></code></a> | <a class="reference internal" href="#ignis.menu_model.IgnisMenuSeparator" title="ignis.menu_model.IgnisMenuSeparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">IgnisMenuSeparator</span></code></a></span>) -- Items to add.</p></li>
-<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) -- The label of the submenu. Only works if this model passed as an item of the parent model. Must be provided only as a <strong>keyword</strong> argument.</p></li>
-</ul>
-</dd>
-</dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ignis.menu_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">IgnisMenuModel</span><span class="p">,</span> <span class="n">IgnisMenuItem</span><span class="p">,</span> <span class="n">IgnisMenuSeparator</span>
+<dt class="sig sig-object py" id="ignis.window_manager.WindowManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.window_manager.</span></span><span class="sig-name descname"><span class="pre">WindowManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.window_manager.WindowManager" title="Link to this definition">#</a></dt>
+<dd><p>A class for managing window objects.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ignis.window_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">WindowManager</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">IgnisMenuModel</span><span class="p">(</span>
-    <span class="n">IgnisMenuItem</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Item 1&quot;</span><span class="p">,</span>
-        <span class="n">on_activate</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;item 1 activated!&quot;</span><span class="p">),</span>
-    <span class="p">),</span>
-    <span class="n">IgnisMenuItem</span><span class="p">(</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;This is disabled item&quot;</span><span class="p">,</span>
-        <span class="n">enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-        <span class="n">on_activate</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span>
-            <span class="s2">&quot;you will not see this message in terminal hehehehehe&quot;</span>
-        <span class="p">),</span>
-    <span class="p">),</span>
-    <span class="n">IgnisMenuModel</span><span class="p">(</span>
-        <span class="o">*</span><span class="p">(</span>  <span class="c1"># unpacking because items must be passed as *args</span>
-            <span class="n">IgnisMenuItem</span><span class="p">(</span>
-                <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
-                <span class="n">on_activate</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clicked on item </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">),</span>
-            <span class="p">)</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-        <span class="p">),</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Submenu&quot;</span><span class="p">,</span>  <span class="c1"># pass label as keyword argument</span>
-    <span class="p">),</span>
-<span class="p">)</span>
+<span class="n">window_manager</span> <span class="o">=</span> <span class="n">WindowManager</span><span class="o">.</span><span class="n">get_default</span><span class="p">()</span>
 
-<span class="c1"># Access built Gio.Menu</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">gmenu</span><span class="p">)</span>
+<span class="c1"># Open, close, or toggle a window</span>
+<span class="n">window_manager</span><span class="o">.</span><span class="n">open_window</span><span class="p">(</span><span class="s2">&quot;window-name&quot;</span><span class="p">)</span>
+<span class="n">window_manager</span><span class="o">.</span><span class="n">close_window</span><span class="p">(</span><span class="s2">&quot;window-name&quot;</span><span class="p">)</span>
+<span class="n">window_manager</span><span class="o">.</span><span class="n">toggle_window</span><span class="p">(</span><span class="s2">&quot;window-name&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get an instance of a window</span>
+<span class="n">some_window</span> <span class="o">=</span> <span class="n">window_manager</span><span class="o">.</span><span class="n">get_window</span><span class="p">(</span><span class="s2">&quot;window-name&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="py gproperty">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuModel.items">
-<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">items</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ignis.menu_model.IgnisMenuItem" title="ignis.menu_model.IgnisMenuItem"><span class="pre">IgnisMenuItem</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#ignis.menu_model.IgnisMenuModel" title="ignis.menu_model.IgnisMenuModel"><span class="pre">IgnisMenuModel</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#ignis.menu_model.IgnisMenuSeparator" title="ignis.menu_model.IgnisMenuSeparator"><span class="pre">IgnisMenuSeparator</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuModel.items" title="Link to this definition">#</a></dt>
-<dd><ul class="simple">
-<li><p>read-write</p></li>
-</ul>
-<p>A list of items.</p>
-</dd></dl>
-
-<dl class="py gproperty">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuModel.gmenu">
-<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gmenu</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://lazka.github.io/pgi-docs/Gio-2.0/classes/Menu.html#Gio.Menu" title="(in Gio 2.0 v2.0)"><span class="pre">Gio.Menu</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuModel.gmenu" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ignis.window_manager.WindowManager.windows">
+<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">windows</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">gi.repository.Gtk.Window</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ignis.window_manager.WindowManager.windows" title="Link to this definition">#</a></dt>
 <dd><ul class="simple">
 <li><p>read-only</p></li>
 </ul>
-<p>The <cite>Gio.Menu</cite> built from the contents of <a class="reference internal" href="#ignis.menu_model.IgnisMenuModel.items" title="ignis.menu_model.IgnisMenuModel.items"><code class="xref py py-attr docutils literal notranslate"><span class="pre">items</span></code></a>, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no items are present.</p>
-</dd></dl>
-
-<dl class="py gproperty">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuModel.label">
-<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuModel.label" title="Link to this definition">#</a></dt>
-<dd><ul class="simple">
-<li><p>read-only</p></li>
-</ul>
-<p>The label of the submenu. Only Works if this model passed as an item of the parent model.</p>
+<p>A list of added windows.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuModel.clean_gmenu">
-<span class="sig-name descname"><span class="pre">clean_gmenu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ignis.menu_model.IgnisMenuModel.clean_gmenu" title="Link to this definition">#</a></dt>
-<dd><p>Clean <a class="reference internal" href="#ignis.menu_model.IgnisMenuModel.gmenu" title="ignis.menu_model.IgnisMenuModel.gmenu"><code class="xref py py-attr docutils literal notranslate"><span class="pre">gmenu</span></code></a>. This will gracefully destroy it, avoiding a memory leak.</p>
+<dt class="sig sig-object py" id="ignis.window_manager.WindowManager.get_window">
+<span class="sig-name descname"><span class="pre">get_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">gi.repository.Gtk.Window</span></span></span><a class="headerlink" href="#ignis.window_manager.WindowManager.get_window" title="Link to this definition">#</a></dt>
+<dd><p>Get a window by name.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>window_name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) -- The window's namespace.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Window</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The window object.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#ignis.exceptions.WindowNotFoundError" title="ignis.exceptions.WindowNotFoundError"><strong>WindowNotFoundError</strong></a> -- If a window with the given namespace does not exist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ignis.window_manager.WindowManager.add_window">
+<span class="sig-name descname"><span class="pre">add_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gi.repository.Gtk.Window</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ignis.window_manager.WindowManager.add_window" title="Link to this definition">#</a></dt>
+<dd><p>Add a window.
+You typically shouldn't use this method, as windows are added automatically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window_name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) -- The window's namespace.</p></li>
+<li><p><strong>window</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Window</span></code></span>) -- The window instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#ignis.exceptions.WindowAddedError" title="ignis.exceptions.WindowAddedError"><strong>WindowAddedError</strong></a> -- If a window with the given namespace already exists.</p>
+</dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
 </dd>
 </dl>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.menu_model.</span></span><span class="sig-name descname"><span class="pre">IgnisMenuItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_activate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem" title="Link to this definition">#</a></dt>
-<dd><p>A menu item.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ignis.window_manager.WindowManager.remove_window">
+<span class="sig-name descname"><span class="pre">remove_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ignis.window_manager.WindowManager.remove_window" title="Link to this definition">#</a></dt>
+<dd><p>Remove a window by its name.
+This will <strong>not</strong> destroy the window.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) -- The label of item.</p></li>
-<li><p><strong>enabled</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) -- Whether the item is enabled. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the item cannot be selected.</p></li>
-<li><p><strong>on_activate</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Callable</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) -- The function to call when the user clicks on the item.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>window_name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) -- The window's namespace.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#ignis.exceptions.WindowNotFoundError" title="ignis.exceptions.WindowNotFoundError"><strong>WindowNotFoundError</strong></a> -- If a window with the given namespace does not exist.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
 </dd>
 </dl>
-<dl class="py gproperty">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.label">
-<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.label" title="Link to this definition">#</a></dt>
-<dd><ul class="simple">
-<li><p>read-only</p></li>
-</ul>
-<p>The label of item.</p>
 </dd></dl>
 
-<dl class="py gproperty">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.uniq_name">
-<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uniq_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.uniq_name" title="Link to this definition">#</a></dt>
-<dd><ul class="simple">
-<li><p>read-only</p></li>
-</ul>
-<p>The unique name of the <code class="docutils literal notranslate"><span class="pre">Gio.Action</span></code>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ignis.window_manager.WindowManager.open_window">
+<span class="sig-name descname"><span class="pre">open_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ignis.window_manager.WindowManager.open_window" title="Link to this definition">#</a></dt>
+<dd><p>Open (show) a window by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>window_name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) -- The window's namespace.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#ignis.exceptions.WindowNotFoundError" title="ignis.exceptions.WindowNotFoundError"><strong>WindowNotFoundError</strong></a> -- If a window with the given namespace does not exist.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py gproperty">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.action_name">
-<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">action_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.action_name" title="Link to this definition">#</a></dt>
-<dd><ul class="simple">
-<li><p>read-only</p></li>
-</ul>
-<p>The full action name (<code class="docutils literal notranslate"><span class="pre">app.UNIQ_NAME</span></code>).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ignis.window_manager.WindowManager.close_window">
+<span class="sig-name descname"><span class="pre">close_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ignis.window_manager.WindowManager.close_window" title="Link to this definition">#</a></dt>
+<dd><p>Close (hide) a window by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>window_name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) -- The window's namespace.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#ignis.exceptions.WindowNotFoundError" title="ignis.exceptions.WindowNotFoundError"><strong>WindowNotFoundError</strong></a> -- If a window with the given namespace does not exist.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py gproperty">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.enabled">
-<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.enabled" title="Link to this definition">#</a></dt>
-<dd><ul class="simple">
-<li><p>read-only</p></li>
-</ul>
-<p>Whether the item is enabled. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the item cannot be selected.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ignis.window_manager.WindowManager.toggle_window">
+<span class="sig-name descname"><span class="pre">toggle_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ignis.window_manager.WindowManager.toggle_window" title="Link to this definition">#</a></dt>
+<dd><p>Toggle (change visibility to opposite state) a window by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>window_name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) -- The window's namespace.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#ignis.exceptions.WindowNotFoundError" title="ignis.exceptions.WindowNotFoundError"><strong>WindowNotFoundError</strong></a> -- If a window with the given namespace does not exist.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py gproperty">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuItem.on_activate">
-<em class="property"><span class="pre">gproperty</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">on_activate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a></em><a class="headerlink" href="#ignis.menu_model.IgnisMenuItem.on_activate" title="Link to this definition">#</a></dt>
-<dd><ul class="simple">
-<li><p>read-write</p></li>
-</ul>
-<p>The function to call when the user clicks on the item.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ignis.window_manager.WindowManager.list_window_names">
+<span class="sig-name descname"><span class="pre">list_window_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ignis.window_manager.WindowManager.list_window_names" title="Link to this definition">#</a></dt>
+<dd><p>List the names of windows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#Ellipsis" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code></a>]</span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing window names.</p>
+</dd>
+</dl>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="ignis.menu_model.IgnisMenuSeparator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ignis.menu_model.</span></span><span class="sig-name descname"><span class="pre">IgnisMenuSeparator</span></span><a class="headerlink" href="#ignis.menu_model.IgnisMenuSeparator" title="Link to this definition">#</a></dt>
-<dd><p>A simple object representing a menu separator.</p>
 </dd></dl>
 
 </section>
@@ -678,20 +683,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="connection_manager.html"
+       href="app.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Connection Manager</p>
+        <p class="prev-next-title">Application</p>
       </div>
     </a>
     <a class="right-next"
-       href="widgets/index.html"
+       href="singleton.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Widgets</p>
+        <p class="prev-next-title">Singleton</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -714,22 +719,17 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuModel"><code class="docutils literal notranslate"><span class="pre">IgnisMenuModel</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuModel.items"><code class="docutils literal notranslate"><span class="pre">IgnisMenuModel.items</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuModel.gmenu"><code class="docutils literal notranslate"><span class="pre">IgnisMenuModel.gmenu</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuModel.label"><code class="docutils literal notranslate"><span class="pre">IgnisMenuModel.label</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuModel.clean_gmenu"><code class="docutils literal notranslate"><span class="pre">IgnisMenuModel.clean_gmenu()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.window_manager.WindowManager"><code class="docutils literal notranslate"><span class="pre">WindowManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.window_manager.WindowManager.windows"><code class="docutils literal notranslate"><span class="pre">WindowManager.windows</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.window_manager.WindowManager.get_window"><code class="docutils literal notranslate"><span class="pre">WindowManager.get_window()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.window_manager.WindowManager.add_window"><code class="docutils literal notranslate"><span class="pre">WindowManager.add_window()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.window_manager.WindowManager.remove_window"><code class="docutils literal notranslate"><span class="pre">WindowManager.remove_window()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.window_manager.WindowManager.open_window"><code class="docutils literal notranslate"><span class="pre">WindowManager.open_window()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.window_manager.WindowManager.close_window"><code class="docutils literal notranslate"><span class="pre">WindowManager.close_window()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.window_manager.WindowManager.toggle_window"><code class="docutils literal notranslate"><span class="pre">WindowManager.toggle_window()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.window_manager.WindowManager.list_window_names"><code class="docutils literal notranslate"><span class="pre">WindowManager.list_window_names()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.label"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.label</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.uniq_name"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.uniq_name</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.action_name"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.action_name</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.enabled"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.enabled</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuItem.on_activate"><code class="docutils literal notranslate"><span class="pre">IgnisMenuItem.on_activate</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.menu_model.IgnisMenuSeparator"><code class="docutils literal notranslate"><span class="pre">IgnisMenuSeparator</span></code></a></li>
 </ul>
   </nav></div>
 
@@ -737,7 +737,7 @@
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/ignis-sh/ignis/edit/main/docs/api/menu_model.rst">
+    <a href="https://github.com/ignis-sh/ignis/edit/main/docs/api/window_manager.rst">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -753,7 +753,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/api/menu_model.rst.txt"
+      <li><a href="../_sources/api/window_manager.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

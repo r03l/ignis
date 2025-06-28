@@ -369,6 +369,8 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../toplevel.html">Toplevel package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../app.html">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../window_manager.html">WindowManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../singleton.html">Singleton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gobject.html">GObject</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../variable.html">Variable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../client.html">Client</a></li>
@@ -379,7 +381,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../dbus_menu.html">D-Bus menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../base_widget.html">BaseWidget</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../base_service.html">BaseService</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deprecation.html">Deprecation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../connection_manager.html">Connection Manager</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menu_model.html">Menu Model</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../widgets/index.html">Widgets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -555,6 +556,23 @@ If you want to load interface info from the path or XML string, you need to prov
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="ignis.utils.get_gdk_display">
+<span class="sig-prename descclassname"><span class="pre">ignis.utils.</span></span><span class="sig-name descname"><span class="pre">get_gdk_display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">gi.repository.Gdk.Display</span></span></span><a class="headerlink" href="#ignis.utils.get_gdk_display" title="Link to this definition">#</a></dt>
+<dd><p>Get the default <code class="xref py py-class docutils literal notranslate"><span class="pre">Gdk.Display</span></code> or raise <code class="xref py py-class docutils literal notranslate"><span class="pre">DisplayNotFoundError</span></code> if it's <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Display</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The default <code class="xref py py-class docutils literal notranslate"><span class="pre">Gdk.Display</span></code>.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../exceptions.html#ignis.exceptions.DisplayNotFoundError" title="ignis.exceptions.DisplayNotFoundError"><strong>DisplayNotFoundError</strong></a> -- If <code class="xref py py-func docutils literal notranslate"><span class="pre">Gdk.Display.get_default()</span></code> returned <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -606,6 +624,7 @@ If you want to load interface info from the path or XML string, you need to prov
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.utils.get_current_dir"><code class="docutils literal notranslate"><span class="pre">get_current_dir()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.utils.load_interface_xml"><code class="docutils literal notranslate"><span class="pre">load_interface_xml()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ignis.utils.get_gdk_display"><code class="docutils literal notranslate"><span class="pre">get_gdk_display()</span></code></a></li>
 </ul>
   </nav></div>
 
