@@ -41,17 +41,11 @@ in
           {
             extraPackages = cfg.extraPackages;
             serviceDependencies = lib.optionals cfg.services.bluetooth [
-                pkgs.bluez
                 pkgs.gnome-bluetooth
               ]
               ++ lib.optionals cfg.services.recorder [
                 pkgs.gpu-screen-recorder
-                pkgs.gst_all_1.gst-plugins-base
-                pkgs.gst_all_1.gst-plugins-good
-                pkgs.gst_all_1.gst-plugins-bad
-                pkgs.gst_all_1.gst-plugins-ugly
               ]
-              ++ lib.optionals cfg.services.network [ pkgs.networkmanager ]
               ++ lib.optionals cfg.services.audio [ pkgs.libpulseaudio ]
               ++ lib.optionals cfg.enableSassCompilation [ pkgs.dart-sass ];
           };
@@ -64,8 +58,10 @@ in
         "To use the Ignis UPower Service, enable UPower in your Nix configuration by adding 'services.upower.enable = true'."
       ] ++ lib.optionals (cfg.services.network && !config.networking.networkmanager.enable) [
         "To use the Ignis Network Service, enable Network Manager in your Nix configuration by adding 'networking.networkmanager.enable = true'."
-      ] ++ lib.optionals (cfg.services.audio && !config.services.pipewire.enable) [
-        "To use the Ignis Audio Service, enable Pipewire in your Nix configuration by adding 'services.pipewire.enable = true'."
+      ] ++ lib.optionals (cfg.services.audio && (!config.services.pipewire.enable || !config.services.pulseaudio.enable)) [
+        ''To use the Ignis Audio Service, Pipewire or Pulseaudio should be enabled .
+        - Enable Pipewire in your Nix configurationby adding 'services.pipewire.enable = true' and 'services.pipewire.pulse.enable'
+        - Enable Pulseaudio in your Nix configuration by adding 'services.pulseaudio.enable = true'.''
       ];
     }
   );

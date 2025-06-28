@@ -10,7 +10,7 @@
 , gtk4-layer-shell
 , gobject-introspection
 , librsvg
-, python312Packages
+, python313Packages
 , gvc
 , extraPackages ? []
 , serviceDependencies ? []
@@ -21,7 +21,7 @@
       licenses
       platforms
     ;
-    inherit (python312Packages)
+    inherit (python313Packages)
       buildPythonPackage
       pygobject3
       pycairo
